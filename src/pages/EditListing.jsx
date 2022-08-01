@@ -9,7 +9,7 @@ import { db } from '../firebase.config';
 import { doc, updateDoc, getDoc, serverTimestamp } from 'firebase/firestore';
 
 function EditListing() {
-
+    // eslint-disable-next-line 
     const [geolocationEnabled, setGeolocationEnabled] = useState(true);
     const [listing, setListing] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -40,7 +40,7 @@ function EditListing() {
 
     //redirect if listing is not user
     useEffect(() => {
-        if (listing && listing.userRef != auth.currentUser.uid) {
+        if (listing && listing.userRef !== auth.currentUser.uid) {
             toast.error('You can not edit that listing');
             navigate('/');
         }
@@ -148,6 +148,8 @@ function EditListing() {
                                 break;
                             case 'running':
                                 console.log('Upload is running');
+                                break;
+                            default:
                                 break;
                         }
                     },
